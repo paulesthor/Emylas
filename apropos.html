@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>À Propos | Emylas Animation</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="media/logo.png" alt="Emylas Animation">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="apropos.html" class="active">À Propos</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="evenements.html">Mes Réalisations</a></li>
+                    <li><a href="devis.html" class="btn-nav">Devis Express</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="about-hero">
+            <div class="container">
+                <span class="tagline">Mon Parcours</span>
+                <h1>PLUS QU'UNE VOIX, <br> UNE <span class="text-green">PERSONNALITÉ</span></h1>
+                <p>Découvrez comment je transforme ma passion du sport en métier.</p>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>De la Gym au <span class="text-green">Micro</span></h2>
+                    <p>Salut, c'est Maxime ! À 23 ans, je suis un pur produit du monde associatif sportif. Ancien gymnaste de niveau régional, j'ai grandi dans les gymnases et sur les stades. Très vite, j'ai compris que ce que j'aimais le plus, ce n'était pas seulement la performance, mais l'ambiance autour.</p>
+                    <p>J'ai troqué le magnésie pour le micro avec une ambition simple : dépoussiérer l'image du speaker traditionnel. Pas de phrases toutes faites, mais de la spontanéité, de l'humour et une énergie capable de fédérer tout un public.</p>
+                </div>
+                <div class="about-image">
+                    <img src="media/ksos.png" alt="Emylas Portrait">
+                </div>
+            </div>
+        </section>
+        
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>L'École de la <span class="text-green">Mascotte</span> & du Digital</h2>
+                    <p>Mon atout secret ? J'ai été mascotte officielle pour une équipe de Basket en Pro A. Cette expérience m'a appris l'essentiel de mon métier : <strong>ne jamais avoir peur du ridicule et tout donner pour le public</strong>. Savoir capter l'attention sans dire un mot m'aide aujourd'hui à mieux utiliser ma voix.</p>
+                    <p>En parallèle, je suis un enfant du numérique. Je ne me contente pas d'animer le jour J : je crée du contenu, je monte des vidéos et je gère la communication de clubs sportifs. Quand vous m'engagez, vous engagez aussi quelqu'un qui comprend les codes d'Instagram et TikTok pour faire rayonner votre événement.</p>
+                </div>
+                <div class="about-image">
+                    <img src="media/oui.jpg" alt="Emylas Action">
+                </div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>L'Aventure <span class="text-green">Meeting Chaussette</span></h2>
+                    <p>On dit souvent qu'on n'est jamais mieux servi que par soi-même. Avec mon père, nous avons créé de toutes pièces un événement d'athlétisme unique en son genre : Le Meeting Chaussette.</p> 
+                    <p>Le concept ? Une compétition sérieuse avec des athlètes internationaux, mais une ambiance totalement décalée où chaque participant reçoit des chaussettes funs. Partis de rien, nous réunissons aujourd'hui entre 300 et 500 personnes.</p>
+                    <p>Cette expérience d'organisateur a changé ma vision de speaker. Je connais le stress de l'organisation, les aléas du direct et l'importance de la gestion des partenaires. Quand j'anime votre événement, je le fais avec l'œil de l'organisateur : je suis là pour vous faciliter la vie et garantir que tout roule.</p>
+                </div>
+                <div class="about-image">
+                    <img src="media/meeting.jpg" alt="Organisation Meeting Chaussette">
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>Basé à Lyon. Mobile en région Auvergne-Rhône-Alpes.</p>
+            <div class="socials">
+                <a href="#">Instagram</a> • <a href="#">LinkedIn</a>
+            </div>
+            <p class="copyright">© 2025 - Emylas Animation</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    
+    <script>
+        const aboutSections = document.querySelectorAll('.about-section');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.2 });
+        
+        aboutSections.forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(50px)';
+            section.style.transition = 'all 0.8s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

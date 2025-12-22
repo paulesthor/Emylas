@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Événements | Emylas Animation</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="media/logo.png" alt="Emylas Animation">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="evenements.html" class="active">Mes Réalisations</a></li>
+                    <li><a href="devis.html" class="btn-nav">Devis Express</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="portfolio-hero">
+            <div class="container">
+                <span class="tagline">Portfolio</span>
+                <h1>TERRAIN & <span class="text-green">ÉMOTION</span></h1>
+                <p>Une immersion en images au cœur des événements animés par Maxime.</p>
+            </div>
+        </section>
+        
+        <section class="portfolio-section">
+            <div class="container">
+                <div class="gallery-grid" id="gallery-container">
+                    <p style="text-align:center;">Chargement des événements...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <h2>VOUS AVEZ UN ÉVÉNEMENT ?</h2>
+                <p>Faisons en sorte qu'on s'en souvienne.</p>
+                <a href="devis.html" class="btn-primary">Me contacter</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>Basé à Lyon. Mobile en région Auvergne-Rhône-Alpes.</p>
+            <div class="socials">
+                <a href="#">Instagram</a> • <a href="#">LinkedIn</a>
+            </div>
+            <p class="copyright">© 2025 - Emylas Animation</p>
+        </div>
+    </footer>
+
+    <script>
+        async function fetchEvents() {
+            const container = document.getElementById('gallery-container');
+            try {
+                // On récupère le fichier JSON généré par l'admin
+                const response = await fetch('./data/evenements.json');
+                const data = await response.json();
+                
+                if (data.projets && data.projets.length > 0) {
+                    container.innerHTML = data.projets.map(item => `
+                        <article class="gallery-card">
+                            <img src="${item.image}" alt="${item.title}">
+                            <div class="gallery-overlay">
+                                <div class="gallery-text">
+                                    <span class="project-cat">${item.category}</span>
+                                    <h3>${item.title}</h3>
+                                    <p>${item.body}</p>
+                                </div>
+                            </div>
+                        </article>
+                    `).join('');
+                } else {
+                    container.innerHTML = "<p>Aucun événement à afficher pour le moment.</p>";
+                }
+            } catch (error) {
+                console.log("Fichier data non trouvé ou vide. Ajoutez des événements dans l'admin.");
+                container.innerHTML = "<p>Rendez-vous dans l'admin pour ajouter vos premiers événements !</p>";
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchEvents);
+
+        // Gestion de la redirection Identity
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>
