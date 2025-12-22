@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
 
@@ -109,7 +111,7 @@
             <div class="container spotlight-grid">
                 <div class="spotlight-img">
                     <img src="media/meeting.jpg" alt="Meeting Chaussette Groupe">
-                    </div>
+                </div>
                 <div class="spotlight-text">
                     <span class="subtitle">Projet Phare</span>
                     <h3>Le "Meeting Chaussette"</h3>
@@ -124,7 +126,7 @@
             <div class="container">
                 <h2>PRÊT À FAIRE DU BRUIT ?</h2>
                 <p>Discutons de votre prochain tournoi, gala ou soirée de lancement.</p>
-                <a href="contact.html" class="btn-primary">Me contacter</a>
+                <a href="devis.html" class="btn-primary">Me contacter</a>
             </div>
         </section>
     </main>
@@ -140,5 +142,17 @@
     </footer>
 
     <script src="js/main.js"></script>
+
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
 </body>
 </html>
