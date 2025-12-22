@@ -67,11 +67,13 @@
         </div>
     </footer>
 
+    <script src="js/main.js"></script>
+
     <script>
         async function fetchEvents() {
             const container = document.getElementById('gallery-container');
             try {
-                // On récupère le fichier JSON généré par l'admin
+                // On récupère le fichier JSON généré par l'admin Netlify
                 const response = await fetch('./data/evenements.json');
                 const data = await response.json();
                 
@@ -92,14 +94,14 @@
                     container.innerHTML = "<p>Aucun événement à afficher pour le moment.</p>";
                 }
             } catch (error) {
-                console.log("Fichier data non trouvé ou vide. Ajoutez des événements dans l'admin.");
-                container.innerHTML = "<p>Rendez-vous dans l'admin pour ajouter vos premiers événements !</p>";
+                console.log("Données non trouvées. Connectez-vous à l'admin pour créer votre premier événement.");
+                container.innerHTML = "<p>Connectez-vous à l'admin pour ajouter vos événements !</p>";
             }
         }
 
         document.addEventListener('DOMContentLoaded', fetchEvents);
 
-        // Gestion de la redirection Identity
+        // Script de redirection après login
         if (window.netlifyIdentity) {
             window.netlifyIdentity.on("init", user => {
                 if (!user) {
