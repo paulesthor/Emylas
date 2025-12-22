@@ -1,0 +1,27 @@
+backend:
+  name: git-gateway
+  branch: main # Assurez-vous que votre branche est bien 'main'
+
+media_folder: "media/uploads"
+public_folder: "/media/uploads"
+
+collections:
+  - name: "content"
+    label: "Contenu du site"
+    delete: false 
+    editor:
+      preview: false
+    files:
+      - name: "realisations"
+        label: "Mes Réalisations"
+        file: "data/realisations.json"
+        fields:
+          - name: "projets"
+            label: "Liste des projets"
+            widget: "list"
+            allow_add: true
+            fields:
+              - {label: "Titre de l'événement", name: "title", widget: "string"}
+              - {label: "Catégorie", name: "category", widget: "string"}
+              - {label: "Image", name: "image", widget: "image"}
+              - {label: "Description courte", name: "body", widget: "string"}
