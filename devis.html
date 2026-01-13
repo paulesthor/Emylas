@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demande de Devis | Emylas Animation</title>
+    
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header id="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="media/logo.png" alt="Emylas Animation">
+            </div>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="apropos.html">À Propos</a></li>
+                    <li><a href="services.html">Mes prestations</a></li>
+                    <li><a href="evenements.html">Mes Réalisations</a></li>
+                    <li><a href="devis.html" class="active btn-nav">Devis Express</a></li>
+                </ul>
+                <div class="burger">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                    <div class="line3"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-hero">
+            <div class="container">
+                <span class="tagline">Contact & Booking</span>
+                <h1>VOTRE PROJET <span class="text-green">SUR MESURE</span></h1>
+                <p>Remplissez ce formulaire et je reviendrai vers vous avec une proposition adaptée.</p>
+                <br><br>
+            </div>
+        </section>
+
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="form-container">
+                    
+                    <form action="https://formspree.io/f/mgooebwy" method="POST">
+                        
+                        <input type="hidden" name="_subject" value="Nouveau Devis Site Web">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="structure">Nom de la structure / Boîte</label>
+                                <input type="text" id="structure" name="Structure" placeholder="Ex: Club, Entreprise, Mairie..." required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email de contact</label>
+                                <input type="email" id="email" name="Email" placeholder="votre@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="phone">Téléphone</label>
+                                <input type="tel" id="phone" name="Telephone" placeholder="06 00 00 00 00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="type-event">Type d'événement</label>
+                                <select id="type-event" name="Type_Evenement">
+                                    <option value="Tournoi Sportif">Tournoi Sportif</option>
+                                    <option value="Gala / Show">Gala / Show</option>
+                                    <option value="Course / Outdoor">Course / Outdoor</option>
+                                    <option value="Soirée Corporate">Soirée d'entreprise</option>
+                                    <option value="Autre">Autre</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Adresse / Lieu de l'événement</label>
+                            <input type="text" id="address" name="Lieu" placeholder="Ville, Gymnase, Stade..." required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="people">Nombre de personnes attendues</label>
+                            <input type="number" id="people" name="Nombre_Personnes" placeholder="Ex: 500" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Détails de votre projet</label>
+                            <textarea id="message" name="Message" rows="5" placeholder="Parlez-moi de vos attentes, des dates prévues..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer; padding: 18px;">Envoyer ma demande</button>
+                    </form>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <p>Basé à Lyon. Mobile en région Auvergne-Rhône-Alpes.</p>
+            <div class="socials">
+                <a href="#">Instagram</a> • <a href="#">LinkedIn</a>
+            </div>
+            <p class="copyright">© 2025 - Emylas Animation</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
